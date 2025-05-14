@@ -12,13 +12,17 @@ Paper: ([arXiv 2401.10166](https://arxiv.org/abs/2401.10166))
 </div>
 
 
-## 🔥 use VMamba with only ***one file*** and in ***fewest steps*** !
+## 🔥 use VMamba to perform classification!
 ```bash
 conda create -n vmamba python=3.10
-pip install torch==2.2 torchvision torchaudio triton pytest chardet yacs termcolor fvcore seaborn packaging ninja einops numpy==1.24.4 timm==0.4.12
-pip install https://github.com/state-spaces/mamba/releases/download/v2.2.4/mamba_ssm-2.2.4+cu12torch2.2cxx11abiTRUE-cp310-cp310-linux_x86_64.whl
-python vmamba.py
+pip install torch==2.7.0 torchvision torchaudio triton pytest chardet yacs termcolor fvcore seaborn packaging ninja einops numpy==1.24.4 timm==0.4.12
+cd kernels/selective_scan && pip install .
 ```
+Then you can import the VMamba classification model using (taking the latest version in the paper of vmamba_small as example)
+```
+from VMamba.classification.models.vmamba_small_s2l15()
+```
+
 
 * [**updates**](#white_check_mark-updates)
 * [**abstract**](#abstract)
